@@ -20,7 +20,6 @@ import com.spa.spa.dto.AdDTO;
 import com.spa.spa.service.company.CompanyService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("/api/company")
 public class CompanyController {
 
