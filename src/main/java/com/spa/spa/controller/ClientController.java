@@ -22,7 +22,6 @@ import com.spa.spa.service.client.ClientService;
 
 @RestController
 @RequestMapping("/api/client")
-@CrossOrigin(origins = "http://localhost:5173")
 public class ClientController {
 
     @Autowired
