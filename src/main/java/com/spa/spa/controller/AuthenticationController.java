@@ -43,7 +43,6 @@ import com.spa.spa.util.JwtUtil;
 import jakarta.servlet.http.HttpServletResponse;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:5173")
 public class AuthenticationController {
     @Autowired
     private AuthService authService;
