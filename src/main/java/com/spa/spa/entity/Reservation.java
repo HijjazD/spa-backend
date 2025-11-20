@@ -51,9 +51,9 @@ public class Reservation {
         dto.setBookDate(bookDate);
         dto.setReservationStatus(reservationStatus);
         dto.setReviewStatus(reviewStatus);
-
         dto.setAdId(ad.getId());
         dto.setUserName(user.getName());
+        dto.setUserPhone(user.getPhone());
 
         return dto;
     }

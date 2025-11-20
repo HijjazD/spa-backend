@@ -12,4 +12,5 @@ public interface CompanyService {
     List<ReservationDTO> getAllReservation();
     boolean changeBookingStatus(Long bookingId, String status);
     boolean updateBookingDate(Long reservationId, String newDateStr);
+    boolean updateBooking(ReservationDTO reservationDTO);
 }

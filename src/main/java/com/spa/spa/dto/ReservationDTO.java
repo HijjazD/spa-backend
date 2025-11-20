@@ -25,5 +25,7 @@ public class ReservationDTO {
 
     private Long adId;
 
+    private String userPhone;
+
 
 }

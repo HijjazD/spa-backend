@@ -73,6 +73,32 @@ public class CompanyServiceImpl implements CompanyService{
         return false;
     }
 
+    public boolean updateBooking(ReservationDTO reservationDTO){
+        Optional<Reservation> reservationOptional = reservationRepository.findById(reservationDTO.getId());
+
+        if (reservationOptional.isPresent()) {
+        Reservation reservation = reservationOptional.get();
+
+            // Only update fields that are allowed to be changed
+            if (reservationDTO.getBookDate() != null) {
+                reservation.setBookDate(reservationDTO.getBookDate());
+            }
+
+            if (reservationDTO.getReservationStatus() != null) {
+                reservation.setReservationStatus(reservationDTO.getReservationStatus());
+            }
+
+            if (reservationDTO.getReviewStatus() != null) {
+                reservation.setReviewStatus(reservationDTO.getReviewStatus());
+            }
+
+            reservationRepository.save(reservation);
+            return true;
+        }
+
+        return false;
+    }
+
 
     public boolean updateBookingDate(Long reservationId, String newDateStr) {
     Optional<Reservation> optionalReservation = reservationRepository.findById(reservationId);
