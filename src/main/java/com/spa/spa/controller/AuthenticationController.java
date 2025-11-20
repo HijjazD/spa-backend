@@ -140,8 +140,8 @@ public class AuthenticationController {
         // 🔹 Create HttpOnly cookie
         ResponseCookie cookie = ResponseCookie.from("jwt", jwt)
                 .httpOnly(true)
-                .secure(false)       // true if HTTPS
-                .sameSite("Lax")    // or "Lax" for same-origin setups
+                .secure(true)       // true if HTTPS
+                .sameSite("None")    // or "Lax" for same-origin setups
                 .path("/")
                 .maxAge(10 * 60 * 60) // 10 hours
                 .build();
@@ -185,8 +185,8 @@ public class AuthenticationController {
         
         ResponseCookie cookie = ResponseCookie.from("jwt", jwt)
             .httpOnly(true)               // JS cannot access it
-            .secure(false)                 // only sent over HTTPS (set to false for local dev if needed)
-            .sameSite("Lax")           // prevents CSRF attacks
+            .secure(true)                 // only sent over HTTPS (set to false for local dev if needed)
+            .sameSite("None")           // prevents CSRF attacks
             .path("/")                    // send cookie on all paths
             .maxAge(10 * 60 * 60)         // 10 hours
             .build();
@@ -208,10 +208,10 @@ public class AuthenticationController {
         // Overwrite the cookie with the same name and set max age to 0
         ResponseCookie cookie = ResponseCookie.from("jwt", "")
                 .httpOnly(true)
-                .secure(false) // use true in production (HTTPS)
+                .secure(true) // use true in production (HTTPS)
                 .path("/")
                 .maxAge(0)
-                .sameSite("Lax") // or "Lax" depending on your setup
+                .sameSite("None") // or "Lax" depending on your setup
                 .build();
 
         response.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
