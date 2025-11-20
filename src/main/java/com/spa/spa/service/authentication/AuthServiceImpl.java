@@ -87,7 +87,7 @@ public class AuthServiceImpl implements AuthService {
         userRepository.save(user);
 
         // Create reset link
-        String resetLink = "http://http://localhost:5173/reset-password/" + token;
+        String resetLink = "https://nailaaziz.vercel.app/reset-password/" + token;
 
         // Send email
         String subject = "Password Reset Request";
